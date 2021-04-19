@@ -9,16 +9,20 @@ class Fighter
 {
     public const MAX_LIFE = 100;
 
-    private string $name;
+    protected string $name;
 
-    private int $strength;
-    private int $dexterity;
+    protected int $strength;
+    protected int $dexterity;
     protected string $image = 'fighter.svg';
 
-    private int $life = self::MAX_LIFE;
+    protected int $life = self::MAX_LIFE;
+    protected  $x;
+    protected  $y;
+    protected float $range = 1;
 
-    private ?Weapon $weapon = null;
-    private ?Shield $shield = null;
+
+
+
 
     public function __construct(
         string $name,
@@ -32,7 +36,7 @@ class Fighter
         $this->image = $image;
     }
 
-    
+
     public function getDamage(): int
     {
         $damage = $this->getStrength();
@@ -52,39 +56,7 @@ class Fighter
         return $defense;
     }
 
-     /**
-     * Get the value of weapon
-     */ 
-    public function getWeapon(): ?Weapon
-    {
-        return $this->weapon;
-    }
 
-    /**
-     * Set the value of weapon
-     *
-     */ 
-    public function setWeapon(Weapon $weapon): void
-    {
-        $this->weapon = $weapon;
-    }
-
-    /**
-     * Get the value of shield
-     */ 
-    public function getShield(): ?Shield
-    {
-        return $this->shield;
-    }
-
-    /**
-     * Set the value of shield
-     *
-     */ 
-    public function setShield(?Shield $shield): void
-    {
-        $this->shield = $shield;
-    }
 
     /**
      * Get the value of name
@@ -170,4 +142,55 @@ class Fighter
     {
         $this->dexterity = $dexterity;
     }
+
+    /**
+     * @return int
+     */
+    public function getX()
+    {
+        return $this->x;
+    }
+
+    /**
+     * @param int $x
+     */
+    public function setX(int $x): void
+    {
+        $this->x = $x;
+    }
+
+    /**
+     * @return int
+     */
+    public function getY()
+    {
+        return $this->y;
+    }
+
+    /**
+     * @param int $y
+     */
+    public function setY(int $y): void
+    {
+        $this->y = $y;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRange(): float
+    {
+        return $this->range;
+    }
+
+    /**
+     * @param float $range
+     */
+    public function setRange(float $range): void
+    {
+        $this->range = $range;
+    }
+
+
+
 }
